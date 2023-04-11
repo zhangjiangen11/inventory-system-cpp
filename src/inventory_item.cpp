@@ -15,7 +15,7 @@ void InventoryItem::_bind_methods() {
     ADD_PROPERTY(PropertyInfo(Variant::INT, "max_stack"), "set_max_stack", "get_max_stack");
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "name"), "set_name", "get_name");
     ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "icon", PROPERTY_HINT_RESOURCE_TYPE, "Texture2D"), "set_icon", "get_icon");
-    ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "objects"), "set_objects", "get_objects");
+    BIND_CONSTANT(NONE);
 }
 
 InventoryItem::InventoryItem() {

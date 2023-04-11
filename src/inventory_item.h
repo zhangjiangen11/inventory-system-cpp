@@ -28,6 +28,10 @@ public:
     void set_icon(const Ref<Texture2D> &new_icon);
 	Ref<Texture2D> get_icon() const;
 
+    enum {
+		NONE = -1,
+	};
+
 };
 
 #endif
