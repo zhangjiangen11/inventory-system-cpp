@@ -7,16 +7,16 @@ using namespace godot;
 Inventory::Inventory() {
 }
 
-void Inventory::set_slot(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount) {
+void Inventory::set_slot(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount) {
     Dictionary slot = slots[p_slot_index];
     slot["item"] = p_item;
     slot["amount"] = godot::Math::min(p_amount , p_item->get_max_stack());
     emit_signal("updated_slot", p_slot_index);
 }
 
-int Inventory::add_to_slot(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount) {
+int Inventory::add_to_slot(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount) {
     Dictionary slot = slots[p_slot_index];
-    Ref<Item> item = Ref<Item>(slot["item"]);
+    Ref<InventoryItem> item = Ref<InventoryItem>(slot["item"]);
     if(p_amount <= 0 || (item != p_item && item != NULL)) {
         return p_amount;
     }
@@ -30,9 +30,9 @@ int Inventory::add_to_slot(const int &p_slot_index, const Ref<Item> &p_item, con
     return p_amount - _amount_to_add;
 }
 
-int Inventory::remove_from_slot(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount) {
+int Inventory::remove_from_slot(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount) {
     Dictionary slot = slots[p_slot_index];
-    Ref<Item> item = Ref<Item>(slot["item"]);
+    Ref<InventoryItem> item = Ref<InventoryItem>(slot["item"]);
     if(p_amount <= 0 || (item != p_item && item != NULL))
     {
         return p_amount;
@@ -83,7 +83,7 @@ void Inventory::set_remove_slot_if_empty(bool p_remove_slot_if_empty) {
     remove_slot_if_empty = p_remove_slot_if_empty;
 }
 
-int Inventory::add(const Ref<Item> &p_item, const int &p_amount) {
+int Inventory::add(const Ref<InventoryItem> &p_item, const int &p_amount) {
 	int amount_in_interact = p_amount;
     int old_amount = get_amount();
 	for(int i = 0; i < slots.size(); i++) {
@@ -99,7 +99,7 @@ int Inventory::add(const Ref<Item> &p_item, const int &p_amount) {
     return amount_in_interact;
 }
 
-int Inventory::add_at(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount) {
+int Inventory::add_at(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount) {
 	int amount_in_interact = p_amount;
     int old_amount = get_amount();
 	if(p_slot_index < slots.size()) {
@@ -109,7 +109,7 @@ int Inventory::add_at(const int &p_slot_index, const Ref<Item> &p_item, const in
     return amount_in_interact;
 }
 
-int Inventory::remove(const Ref<Item> &p_item, const int &p_amount) {
+int Inventory::remove(const Ref<InventoryItem> &p_item, const int &p_amount) {
 	int amount_in_interact = p_amount;
     int old_amount = get_amount();
     for(int i = slots.size() - 1; i >= 0; i--) {
@@ -124,7 +124,7 @@ int Inventory::remove(const Ref<Item> &p_item, const int &p_amount) {
 	return amount_in_interact;
 }
 
-int Inventory::remove_at(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount) {
+int Inventory::remove_at(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount) {
 	int amount_in_interact = p_amount;
     int old_amount = get_amount();
     if(p_slot_index < slots.size()) {
@@ -139,11 +139,11 @@ int Inventory::remove_at(const int &p_slot_index, const Ref<Item> &p_item, const
 	return amount_in_interact;
 }
 
-bool Inventory::contains(const Ref<Item> &p_item, const int &p_amount) const {
+bool Inventory::contains(const Ref<InventoryItem> &p_item, const int &p_amount) const {
     int amount_in_inventory = 0;
     for(int i = 0;i < slots.size(); i++) {
         Dictionary slot = slots[i];
-        if(Ref<Item>(slot["item"]) == p_item) {
+        if(Ref<InventoryItem>(slot["item"]) == p_item) {
             amount_in_inventory += int(slot["amount"]);
             if(amount_in_inventory > p_amount) {
                 return true;
@@ -153,11 +153,11 @@ bool Inventory::contains(const Ref<Item> &p_item, const int &p_amount) const {
     return false;
 }
 
-int Inventory::get_amount_of(const Ref<Item> &p_item, const int &p_amount) const {
+int Inventory::get_amount_of(const Ref<InventoryItem> &p_item, const int &p_amount) const {
     int amount_in_inventory = 0;
     for(int i = 0;i < slots.size(); i++) {
         Dictionary slot = slots[i];
-        if(Ref<Item>(slot["item"]) == p_item) {
+        if(Ref<InventoryItem>(slot["item"]) == p_item) {
             amount_in_inventory += int(slot["amount"]);
         }
     }
@@ -199,7 +199,7 @@ bool Inventory::is_empty() const{
 bool Inventory::is_full() const{
     for(int i = 0;i < slots.size(); i++) {
         Dictionary slot = slots[i];
-        Ref<Item> item = Ref<Item>(slot["item"]);
+        Ref<InventoryItem> item = Ref<InventoryItem>(slot["item"]);
         if(item == NULL || int(slot["amount"]) < item->get_max_stack()) {
             return false;
         }

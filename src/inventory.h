@@ -7,7 +7,7 @@
 
 #include <godot_cpp/classes/node.hpp>
 #include <godot_cpp/classes/global_constants.hpp>
-#include "item.h"
+#include "inventory_item.h"
 #include <godot_cpp/classes/resource.hpp>
 
 using namespace godot;
@@ -30,13 +30,13 @@ public:
 	void set_create_slot_if_needed(bool p_create_slot_if_needed);
 	bool is_remove_slot_if_empty() const;
 	void set_remove_slot_if_empty(bool p_remove_slot_if_empty);
-	void set_slot(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount);
-	int add(const Ref<Item> &p_item, const int &p_amount = 1);
-	int add_at(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount = 1);
-	int remove(const Ref<Item> &p_item, const int &p_amount = 1);
-	int remove_at(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount = 1);
-	bool contains(const Ref<Item> &p_item, const int &p_amount = 1) const;
-	int get_amount_of(const Ref<Item> &p_item, const int &p_amount = 1) const;
+	void set_slot(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount);
+	int add(const Ref<InventoryItem> &p_item, const int &p_amount = 1);
+	int add_at(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount = 1);
+	int remove(const Ref<InventoryItem> &p_item, const int &p_amount = 1);
+	int remove_at(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount = 1);
+	bool contains(const Ref<InventoryItem> &p_item, const int &p_amount = 1) const;
+	int get_amount_of(const Ref<InventoryItem> &p_item, const int &p_amount = 1) const;
 	void clear();
 	int get_amount() const;
 	bool is_empty() const;
@@ -49,8 +49,8 @@ protected:
 
 private:
 	// SLOTS
-	int add_to_slot(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount);
-	int remove_from_slot(const int &p_slot_index, const Ref<Item> &p_item, const int &p_amount);
+	int add_to_slot(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount);
+	int remove_from_slot(const int &p_slot_index, const Ref<InventoryItem> &p_item, const int &p_amount);
 	// SIGNALS
 	void call_events(const int &p_old_amount);
 

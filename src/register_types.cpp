@@ -11,8 +11,8 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
-#include "item.h"
-#include "inventory.h"
+#include "inventory_item.h"
+// #include "inventory.h"
 #include "tests.h"
 
 using namespace godot;
@@ -22,8 +22,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 		return;
 	}
 
-	ClassDB::register_class<Item>();
-	ClassDB::register_class<Inventory>();
+	ClassDB::register_class<InventoryItem>();
+	// ClassDB::register_class<Inventory>();
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
