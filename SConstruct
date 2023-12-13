@@ -11,7 +11,7 @@ def validate_parent_dir(key, val, env):
         raise UserError("'%s' is not a directory: %s" % (key, os.path.dirname(val)))
 
 
-libname = "inventory_system_core"
+libname = "inventory_system"
 projectdir = "inventory-system"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
