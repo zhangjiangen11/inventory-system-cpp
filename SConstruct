@@ -11,7 +11,7 @@ def validate_parent_dir(key, val, env):
         raise UserError("'%s' is not a directory: %s" % (key, os.path.dirname(val)))
 
 
-libname = "INVENTORY_SYSTEM_CPP"
+libname = "inventory_system_core"
 projectdir = "inventory-system"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
@@ -65,7 +65,7 @@ library = env.SharedLibrary(
     source=sources,
 )
 
-copy = env.InstallAs("{}/bin/{}/lib{}".format(projectdir, env["platform"], file), library)
+copy = env.InstallAs("{}/addons/{}/bin/{}/lib_{}".format(projectdir, projectdir, env["platform"], file), library)
 
 default_args = [library, copy]
 if localEnv.get("compiledb", False):
