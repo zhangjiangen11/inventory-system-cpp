@@ -7,6 +7,7 @@
 #include "item_category.h"
 #include "item_definition.h"
 #include "craft_station_type.h"
+#include "item.h"
 
 using namespace godot;
 
@@ -18,6 +19,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 	ClassDB::register_class<ItemCategory>();
 	ClassDB::register_class<ItemDefinition>();
 	ClassDB::register_class<CraftStationType>();
+	ClassDB::register_class<Item>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
