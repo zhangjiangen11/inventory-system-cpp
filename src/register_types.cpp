@@ -5,7 +5,7 @@
 #include <godot_cpp/godot.hpp>
 
 #include "item_category.h"
-// #include "item_definition.h"
+#include "item_definition.h"
 
 using namespace godot;
 
@@ -15,6 +15,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 		return;
 	}
 	ClassDB::register_class<ItemCategory>();
+	ClassDB::register_class<ItemDefinition>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

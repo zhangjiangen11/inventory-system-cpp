@@ -29,6 +29,8 @@ public:
 	Color get_color() const;
     void set_icon(const Ref<Texture2D> &new_icon);
 	Ref<Texture2D> get_icon() const;
+    void set_code(const int &new_code);
+	int get_code() const;
 
 };
 

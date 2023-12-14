@@ -12,9 +12,12 @@ void ItemCategory::_bind_methods() {
     ClassDB::bind_method(D_METHOD("get_color"), &ItemCategory::get_color);
     ClassDB::bind_method(D_METHOD("set_icon", "icon"), &ItemCategory::set_icon);
     ClassDB::bind_method(D_METHOD("get_icon"), &ItemCategory::get_icon);
+    ClassDB::bind_method(D_METHOD("set_code", "code"), &ItemCategory::set_code);
+    ClassDB::bind_method(D_METHOD("get_code"), &ItemCategory::get_code);
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "name"), "set_name", "get_name");
     ADD_PROPERTY(PropertyInfo(Variant::COLOR, "color"), "set_color", "get_color");
     ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "icon", PROPERTY_HINT_RESOURCE_TYPE, "Texture2D"), "set_icon", "get_icon");
+    ADD_PROPERTY(PropertyInfo(Variant::INT, "code"), "set_code", "get_code");
 }
 
 ItemCategory::ItemCategory() {
@@ -47,4 +50,12 @@ void ItemCategory::set_icon(const Ref<Texture2D> &p_icon) {
 
 Ref<Texture2D> ItemCategory::get_icon() const {
     return icon;
+}
+
+void ItemCategory::set_code(const int &new_code) {
+	code = new_code;
+}
+
+int ItemCategory::get_code() const {
+	return code;
 }
