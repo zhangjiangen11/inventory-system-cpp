@@ -8,6 +8,7 @@
 #include "item_definition.h"
 #include "craft_station_type.h"
 #include "item.h"
+#include "slot.h"
 
 using namespace godot;
 
@@ -20,6 +21,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level)
 	ClassDB::register_class<ItemDefinition>();
 	ClassDB::register_class<CraftStationType>();
 	ClassDB::register_class<Item>();
+	ClassDB::register_class<Slot>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {

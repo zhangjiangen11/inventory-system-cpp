@@ -26,6 +26,10 @@ protected:
 	static void _bind_methods();
 
 public:
+	enum {
+		NONE = -1
+	};
+
 	ItemDefinition();
 	~ItemDefinition();
     void set_id(const int &new_id);
@@ -46,11 +50,6 @@ public:
 	TypedArray<String> get_dynamic_properties() const;
 	void set_categories(const TypedArray<ItemCategory> &new_categories);
 	TypedArray<ItemCategory> get_categories() const;
-
-	enum {
-		NONE = -1,
-	};
-
 	bool contains_category(const Ref<ItemCategory> category) const;
 };
 
