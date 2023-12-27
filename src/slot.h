@@ -4,7 +4,6 @@
 #include "item.h"
 #include <godot_cpp/classes/resource.hpp>
 
-
 using namespace godot;
 
 class Slot : public Resource {
