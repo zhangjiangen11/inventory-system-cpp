@@ -11,6 +11,7 @@
 #include "recipe.h"
 #include "slot.h"
 #include "inventory_database.h"
+#include "node_inventories.h"
 
 
 using namespace godot;
@@ -26,6 +27,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<Slot>();
 	ClassDB::register_class<Recipe>();
 	ClassDB::register_class<InventoryDatabase>();
+	ClassDB::register_class<NodeInventories>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
