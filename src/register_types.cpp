@@ -8,8 +8,9 @@
 #include "item.h"
 #include "item_category.h"
 #include "item_definition.h"
-#include "craft/recipe.h"
+#include "recipe.h"
 #include "slot.h"
+#include "inventory_database.h"
 
 
 using namespace godot;
@@ -24,6 +25,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<Item>();
 	ClassDB::register_class<Slot>();
 	ClassDB::register_class<Recipe>();
+	ClassDB::register_class<InventoryDatabase>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
