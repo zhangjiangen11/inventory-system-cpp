@@ -24,7 +24,7 @@ public:
 	Ref<ItemDefinition> get_definition() const;
 	void set_properties(const Dictionary &new_properties);
 	Dictionary get_properties() const;
-	bool is_stack_with(Item other_item) const;
+	bool is_stack_with(Ref<Item> other_item) const;
 };
 
 #endif // ITEM_CLASS_H
