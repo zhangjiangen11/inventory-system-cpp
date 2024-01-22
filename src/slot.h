@@ -27,7 +27,7 @@ public:
 	void set_max_stack(const int &new_max_stack);
 	int get_max_stack() const;
 	int get_item_id() const;
-	int add(const Ref<Item> item, const int &amount);
+	virtual int add(const Ref<Item> item, const int &amount);
 	int remove(const Ref<Item> item, const int &amount);
 	int get_max_stack_for_item(Ref<ItemDefinition> item) const;
 	bool is_full() const;
