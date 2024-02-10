@@ -13,6 +13,7 @@
 #include "inventory_database.h"
 #include "node_inventories.h"
 #include "inventory.h"
+#include "categorized_slot.h"
 
 
 using namespace godot;
@@ -30,6 +31,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<InventoryDatabase>();
 	ClassDB::register_class<NodeInventories>();
 	ClassDB::register_class<Inventory>();
+	ClassDB::register_class<CategorizedSlot>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
