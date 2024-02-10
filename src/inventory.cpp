@@ -7,7 +7,7 @@ Inventory::Inventory() {
 Inventory::~Inventory() {
 }
 
-void Inventory::_ready() {
+void Inventory::_enter_tree() {
 	if (!Engine::get_singleton()->is_editor_hint()) {
 		_load_slots();
 	}
@@ -197,6 +197,7 @@ int Inventory::add_at(const int &slot_index, const Ref<Item> &item, const int &a
 int Inventory::remove(const Ref<Item> &item, const int &amount) {
 	int amount_in_interact = amount;
 	int old_amount = get_amount();
+	Ref<ItemDefinition> _definition = item->get_definition();
 	for (size_t i = 0; i < slots.size(); i++) {
 		Ref<Slot> slot = slots[i];
 		amount_in_interact = _remove_from_slot(i, item, amount_in_interact);
@@ -207,7 +208,7 @@ int Inventory::remove(const Ref<Item> &item, const int &amount) {
 	}
 	int _removed = amount - amount_in_interact;
 	if (_removed > 0) {
-		emit_signal("item_removed", item, _removed);
+		emit_signal("item_removed", _definition, _removed);
 	}
 	return amount_in_interact;
 }
@@ -215,6 +216,7 @@ int Inventory::remove(const Ref<Item> &item, const int &amount) {
 int Inventory::remove_at(const int &slot_index, const Ref<Item> &item, const int &amount) {
 	int amount_in_interact = amount;
 	int old_amount = get_amount();
+	Ref<ItemDefinition> _definition = item->get_definition();
 	if (slot_index < slots.size()) {
 		Ref<Slot> slot = slots[slot_index];
 		amount_in_interact = _remove_from_slot(slot_index, item, amount_in_interact);
@@ -225,7 +227,7 @@ int Inventory::remove_at(const int &slot_index, const Ref<Item> &item, const int
 	}
 	int _removed = amount - amount_in_interact;
 	if (_removed > 0) {
-		emit_signal("item_removed", item, _removed);
+		emit_signal("item_removed", _definition, _removed);
 	}
 	return amount_in_interact;
 }
@@ -408,7 +410,7 @@ void Inventory::_bind_methods() {
 	ADD_SIGNAL(MethodInfo("slot_added", PropertyInfo(Variant::INT, "slot_index")));
 	ADD_SIGNAL(MethodInfo("slot_removed", PropertyInfo(Variant::INT, "slot_index")));
 	ADD_SIGNAL(MethodInfo("item_added", PropertyInfo(Variant::OBJECT, "item", PROPERTY_HINT_RESOURCE_TYPE, "Item"), PropertyInfo(Variant::INT, "amount")));
-	ADD_SIGNAL(MethodInfo("item_removed", PropertyInfo(Variant::OBJECT, "item", PROPERTY_HINT_RESOURCE_TYPE, "Item"), PropertyInfo(Variant::INT, "amount")));
+	ADD_SIGNAL(MethodInfo("item_removed", PropertyInfo(Variant::OBJECT, "item_definition", PROPERTY_HINT_RESOURCE_TYPE, "ItemDefinition"), PropertyInfo(Variant::INT, "amount")));
 	ADD_SIGNAL(MethodInfo("filled"));
 	ADD_SIGNAL(MethodInfo("emptied"));
 	ADD_SIGNAL(MethodInfo("updated_slot", PropertyInfo(Variant::INT, "slot_index")));

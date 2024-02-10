@@ -28,7 +28,7 @@ protected:
 public:
 	Inventory();
 	~Inventory();
-	virtual void _ready();
+	virtual void _enter_tree();
 	void add_slot(int slot_index, bool emit_signal = true);
 	void remove_slot(int slot_index, bool emit_signal = true);
 	void set_slot(const int &slot_index, const Ref<Item> &item, const int &amount);
