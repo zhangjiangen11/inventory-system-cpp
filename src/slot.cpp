@@ -25,7 +25,7 @@ void Slot::_bind_methods() {
 
 	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "item", PROPERTY_HINT_RESOURCE_TYPE, "Item"), "set_item", "get_item");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "amount"), "set_amount", "get_amount");
-	ADD_PROPERTY(PropertyInfo(Variant::INT, "max_stack"), "set_max_stack", "get_max_stack", DEFVAL(-1));
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "max_stack"), "set_max_stack", "get_max_stack");
 }
 
 Slot::Slot() {
@@ -93,7 +93,7 @@ int Slot::get_item_id() const {
 	if (this->item == nullptr || this->item->get_definition() == nullptr) {
 		return ItemDefinition::NONE;
 	} else {
-		this->item->get_definition()->get_id();
+		return this->item->get_definition()->get_id();
 	}
 }
 
