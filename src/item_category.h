@@ -14,7 +14,7 @@ private:
     String name;
     Color color;
     Ref<Texture2D> icon;
-    int code;
+    int code = 0;
 
 
 protected:

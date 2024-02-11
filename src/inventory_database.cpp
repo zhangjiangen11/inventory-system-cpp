@@ -17,14 +17,13 @@ void InventoryDatabase::_update_items_cache() {
 
 void InventoryDatabase::_update_items_categories_cache() {
 	categories_code_cache.clear();
-	for (size_t i = 0; i < categories_code_cache.size(); i++) {
+	for (size_t i = 0; i < item_categories.size(); i++) {
 		Ref<ItemCategory> category = item_categories[i];
-		if (category != nullptr) {
-			if (!Engine::get_singleton()->is_editor_hint()) {
-				category->set_code(pow(2, i));
-			}
-			categories_code_cache[pow(2, i)] = category;
+		if (category == nullptr) continue;
+		if (!Engine::get_singleton()->is_editor_hint()) {
+			category->set_code(pow(2, i));
 		}
+		categories_code_cache[pow(2, i)] = category;
 	}
 }
 
