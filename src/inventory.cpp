@@ -406,6 +406,7 @@ void Inventory::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_slot_amount"), &Inventory::get_slot_amount);
 	ClassDB::bind_method(D_METHOD("set_inventory_name", "inventory_name"), &Inventory::set_inventory_name);
 	ClassDB::bind_method(D_METHOD("get_inventory_name"), &Inventory::get_inventory_name);
+	ClassDB::bind_method(D_METHOD("update_slot", "slot_index"), &Inventory::update_slot);
 	ADD_SIGNAL(MethodInfo("inventory_changed"));
 	ADD_SIGNAL(MethodInfo("slot_added", PropertyInfo(Variant::INT, "slot_index")));
 	ADD_SIGNAL(MethodInfo("slot_removed", PropertyInfo(Variant::INT, "slot_index")));
@@ -425,7 +426,7 @@ void Inventory::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::STRING, "inventory_name"), "set_inventory_name", "get_inventory_name");
 }
 
-void Inventory::_update_slot(const int slot_index) {
+void Inventory::update_slot(const int slot_index) {
 	emit_signal("updated_slot", slot_index);
 	_call_events(get_amount());
 }

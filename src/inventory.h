@@ -23,12 +23,12 @@ private:
 
 protected:
 	static void _bind_methods();
-	void _update_slot(const int slot_index);
 
 public:
 	Inventory();
 	~Inventory();
 	virtual void _enter_tree();
+	void update_slot(const int slot_index);
 	void add_slot(int slot_index, bool emit_signal = true);
 	void remove_slot(int slot_index, bool emit_signal = true);
 	void set_slot(const int &slot_index, const Ref<Item> &item, const int &amount);
