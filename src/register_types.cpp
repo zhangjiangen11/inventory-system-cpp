@@ -14,6 +14,7 @@
 #include "node_inventories.h"
 #include "inventory.h"
 #include "categorized_slot.h"
+#include "hotbar.h"
 
 
 using namespace godot;
@@ -32,6 +33,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<NodeInventories>();
 	ClassDB::register_class<Inventory>();
 	ClassDB::register_class<CategorizedSlot>();
+	ClassDB::register_class<Hotbar>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
