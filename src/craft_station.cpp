@@ -59,7 +59,7 @@ void CraftStation::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "processing_mode", PROPERTY_HINT_ENUM, "Parallel,Sequential"), "set_processing_mode", "get_processing_mode");
 	ADD_PROPERTY(PropertyInfo(Variant::BOOL, "is_open"), "set_is_open", "get_is_open");
 	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "craftings", PROPERTY_HINT_ARRAY_TYPE, vformat("%s/%s:%s", Variant::OBJECT, PROPERTY_HINT_RESOURCE_TYPE, "Crafting")), "set_craftings", "get_craftings");
-	ADD_PROPERTY(PropertyInfo(Variant::INT, "valid_recipes"), "set_valid_recipes", "get_valid_recipes");
+	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "valid_recipes"), "set_valid_recipes", "get_valid_recipes");
 }
 
 void CraftStation::_process_crafts(float delta) {
@@ -167,12 +167,12 @@ void CraftStation::_check_auto_crafts() {
 		return;
 	if (!auto_craft)
 		return;
-	ERR_FAIL_COND_MSG(get_database() == nullptr, "Database is null!");
+	// ERR_FAIL_COND_MSG(get_database() == nullptr, "Database is null!");
 	for (size_t i = 0; i < valid_recipes.size(); i++) {
-		Ref<Recipe> recipe = get_database()->get_recipes()[i];
+		Ref<Recipe> recipe = get_database()->get_recipes()[valid_recipes[i]];
 		if (!can_craft(recipe))
 			continue;
-		craft(i);
+		craft(valid_recipes[i]);
 	}
 }
 
@@ -232,11 +232,7 @@ int CraftStation::crafting_count() const {
 bool CraftStation::can_craft(const Ref<Recipe> &recipe) const {
 	if (recipe == nullptr)
 		return false;
-	if (recipe->get_station() == nullptr && type != nullptr)
-		return false;
-	if (recipe->get_station() != nullptr && type == nullptr)
-		return false;
-	if (recipe->get_station() != nullptr && type != nullptr && recipe->get_station() != type)
+	if (recipe->get_station() != type)
 		return false;
 	if (limit_number_crafts >= 0 && limit_number_crafts <= craftings.size())
 		return false;
