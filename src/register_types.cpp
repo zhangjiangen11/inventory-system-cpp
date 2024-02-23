@@ -17,6 +17,7 @@
 #include "craft_station.h"
 #include "categorized_slot.h"
 #include "hotbar.h"
+#include "crafter.h"
 
 
 using namespace godot;
@@ -38,6 +39,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<CraftStation>();
 	ClassDB::register_class<CategorizedSlot>();
 	ClassDB::register_class<Hotbar>();
+	ClassDB::register_class<Crafter>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
