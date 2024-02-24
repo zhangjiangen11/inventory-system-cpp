@@ -19,6 +19,12 @@ void Crafter::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "opened_stations", PROPERTY_HINT_ARRAY_TYPE, vformat("%s/%s:%s", Variant::NODE_PATH, PROPERTY_HINT_NODE_PATH_VALID_TYPES, "CraftStation")), "set_opened_stations", "get_opened_stations");
 }
 
+Crafter::Crafter() {
+}
+
+Crafter::~Crafter() {
+}
+
 void Crafter::set_main_station(const NodePath &new_main_station) {
 	main_station = new_main_station;
 }

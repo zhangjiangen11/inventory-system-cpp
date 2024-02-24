@@ -19,6 +19,8 @@ protected:
 	static void _bind_methods();
 
 public:
+	Crafter();
+	~Crafter();
 	void set_main_station(const NodePath &new_main_station);
 	NodePath get_main_station() const;
 	void set_opened_stations(const TypedArray<NodePath> &new_opened_stations);

@@ -18,6 +18,7 @@
 #include "categorized_slot.h"
 #include "hotbar.h"
 #include "crafter.h"
+#include "interact_action.h"
 
 
 using namespace godot;
@@ -40,6 +41,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<CategorizedSlot>();
 	ClassDB::register_class<Hotbar>();
 	ClassDB::register_class<Crafter>();
+	ClassDB::register_class<InteractAction>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
