@@ -113,7 +113,7 @@ bool CraftStation::_use_items(const Ref<Recipe> &recipe) {
 		Ref<Slot> ingredient = recipe->get_ingredients()[i];
 		int amount_to_remove = ingredient->get_amount();
 		for (size_t j = 0; j < input_inventories.size(); j++) {
-			Inventory* inventory = get_input_inventory(j);
+			Inventory *inventory = get_input_inventory(j);
 			if (inventory == nullptr) {
 				ERR_PRINT("Passed object is not a Inventory!");
 				return false;
@@ -192,7 +192,7 @@ void CraftStation::_ready() {
 
 void CraftStation::_setup_connections() {
 	for (size_t i = 0; i < input_inventories.size(); i++) {
-		Inventory* inventory = get_input_inventory(i);
+		Inventory *inventory = get_input_inventory(i);
 		if (inventory == nullptr) {
 			ERR_PRINT("Passed object is not a Inventory!");
 			continue;
@@ -244,7 +244,7 @@ bool CraftStation::contains_ingredients(const Ref<Recipe> &recipe) const {
 		Ref<Slot> slot = recipe->get_ingredients()[i];
 		int amount_total = 0;
 		for (size_t j = 0; j < input_inventories.size(); j++) {
-			Inventory* inventory = get_input_inventory(j);
+			Inventory *inventory = get_input_inventory(j);
 			if (inventory == nullptr) {
 				ERR_PRINT("Passed object is not a Inventory!");
 				return false;
@@ -259,7 +259,7 @@ bool CraftStation::contains_ingredients(const Ref<Recipe> &recipe) const {
 		Ref<Slot> slot = recipe->get_required_items()[i];
 		int amount_total = 0;
 		for (size_t j = 0; j < input_inventories.size(); j++) {
-			Inventory* inventory = get_input_inventory(j);
+			Inventory *inventory = get_input_inventory(j);
 			if (inventory == nullptr) {
 				ERR_PRINT("Passed object is not a Inventory!");
 				return false;

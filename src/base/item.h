@@ -4,7 +4,6 @@
 #include "item_definition.h"
 #include <godot_cpp/classes/resource.hpp>
 
-
 using namespace godot;
 
 class Item : public Resource {

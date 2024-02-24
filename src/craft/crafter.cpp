@@ -41,7 +41,7 @@ TypedArray<NodePath> Crafter::get_opened_stations() const {
 	return opened_stations;
 }
 
-bool Crafter::open(CraftStation* craft_station) {
+bool Crafter::open(CraftStation *craft_station) {
 	if (opened_stations.has(craft_station->get_path()))
 		return false;
 	if (!craft_station->open())
@@ -51,7 +51,7 @@ bool Crafter::open(CraftStation* craft_station) {
 	return true;
 }
 
-bool Crafter::close(CraftStation* craft_station) {
+bool Crafter::close(CraftStation *craft_station) {
 	uint32_t index = opened_stations.find(craft_station->get_path());
 	if (index == -1)
 		return false;
@@ -76,7 +76,7 @@ bool Crafter::is_open_any_station() const {
 	return opened_stations.size() > 0;
 }
 
-bool Crafter::is_open(const CraftStation* craft_station) const {
+bool Crafter::is_open(const CraftStation *craft_station) const {
 	return craft_station->get_is_open();
 }
 

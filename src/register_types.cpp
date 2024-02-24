@@ -4,22 +4,21 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
-#include "craft_station_type.h"
-#include "item.h"
-#include "item_category.h"
-#include "item_definition.h"
-#include "recipe.h"
-#include "slot.h"
-#include "inventory_database.h"
-#include "node_inventories.h"
-#include "inventory.h"
-#include "crafting.h"
-#include "craft_station.h"
-#include "categorized_slot.h"
-#include "hotbar.h"
-#include "crafter.h"
-#include "interact_action.h"
-
+#include "base/craft_station_type.h"
+#include "base/inventory_database.h"
+#include "base/item.h"
+#include "base/item_category.h"
+#include "base/item_definition.h"
+#include "base/node_inventories.h"
+#include "base/recipe.h"
+#include "base/slot.h"
+#include "core/categorized_slot.h"
+#include "core/hotbar.h"
+#include "core/inventory.h"
+#include "craft/craft_station.h"
+#include "craft/crafter.h"
+#include "craft/crafting.h"
+#include "interact/interact_action.h"
 
 using namespace godot;
 

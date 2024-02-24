@@ -34,7 +34,7 @@ void ItemDefinition::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::DICTIONARY, "properties"), "set_properties", "get_properties");
 	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "dynamic_properties", PROPERTY_HINT_ARRAY_TYPE, vformat("%s/%s:%s", Variant::STRING, PROPERTY_HINT_TYPE_STRING, "String")), "set_dynamic_properties", "get_dynamic_properties");
 	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "categories", PROPERTY_HINT_ARRAY_TYPE, vformat("%s/%s:%s", Variant::OBJECT, PROPERTY_HINT_RESOURCE_TYPE, "ItemCategory")), "set_categories", "get_categories");
-    BIND_CONSTANT(NONE);
+	BIND_CONSTANT(NONE);
 }
 
 ItemDefinition::ItemDefinition() {

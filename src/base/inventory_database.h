@@ -9,7 +9,6 @@
 #include "item_definition.h"
 #include "recipe.h"
 
-
 using namespace godot;
 
 class InventoryDatabase : public Resource {
@@ -48,7 +47,7 @@ public:
 	void add_new_item(const Ref<ItemDefinition> item);
 	void remove_item(const Ref<ItemDefinition> item);
 	void add_new_category(const Ref<ItemCategory> category);
-    void remove_category(const Ref<ItemCategory> category);
+	void remove_category(const Ref<ItemCategory> category);
 	Ref<ItemDefinition> get_item(int id) const;
 	bool has_item_id(int id) const;
 	int get_valid_id() const;

@@ -1,9 +1,8 @@
 #include "inventory_database.h"
 
+#include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/classes/global_constants.hpp>
 #include <godot_cpp/core/class_db.hpp>
-#include <godot_cpp/classes/engine.hpp>
-
 
 void InventoryDatabase::_update_items_cache() {
 	items_cache.clear();
@@ -19,7 +18,8 @@ void InventoryDatabase::_update_items_categories_cache() {
 	categories_code_cache.clear();
 	for (size_t i = 0; i < item_categories.size(); i++) {
 		Ref<ItemCategory> category = item_categories[i];
-		if (category == nullptr) continue;
+		if (category == nullptr)
+			continue;
 		if (!Engine::get_singleton()->is_editor_hint()) {
 			category->set_code(pow(2, i));
 		}

@@ -1,8 +1,8 @@
 #ifndef INVENTORY_CLASS_H
 #define INVENTORY_CLASS_H
 
-#include "node_inventories.h"
-#include "slot.h"
+#include "base/node_inventories.h"
+#include "base/slot.h"
 
 using namespace godot;
 

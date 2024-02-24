@@ -1,13 +1,13 @@
 #include "categorized_slot.h"
 #include <godot_cpp/classes/engine.hpp>
 
-
 void CategorizedSlot::_update_categories_code() {
 	accepted_categories_code = 0;
 	if (!Engine::get_singleton()->is_editor_hint()) {
 		for (size_t i = 0; i < accepted_categories.size(); i++) {
 			Ref<ItemCategory> c = accepted_categories[i];
-			if(c == nullptr) continue;
+			if (c == nullptr)
+				continue;
 			accepted_categories_code |= c->get_code();
 		}
 	}
@@ -16,7 +16,8 @@ void CategorizedSlot::_update_categories_code() {
 bool CategorizedSlot::_is_accept_any_categories(const TypedArray<ItemCategory> &other_list) const {
 	for (size_t i = 0; i < other_list.size(); i++) {
 		Ref<ItemCategory> c = other_list[i];
-		if(c == nullptr) continue;
+		if (c == nullptr)
+			continue;
 		if ((accepted_categories_code & c->get_code()) > 0) {
 			return true;
 		}
@@ -50,7 +51,7 @@ TypedArray<ItemCategory> CategorizedSlot::get_accepted_categories() const {
 
 int CategorizedSlot::add(const Ref<Item> item, const int &amount) {
 	_update_categories_code();
-    if (!is_accept_any_categories_of_item(item->get_definition())) {
+	if (!is_accept_any_categories_of_item(item->get_definition())) {
 		return amount;
 	}
 	return Slot::add(item, amount);

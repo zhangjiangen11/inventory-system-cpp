@@ -1,9 +1,10 @@
 #ifndef HOTBAR_CLASS_H
 #define HOTBAR_CLASS_H
 
-#include "node_inventories.h"
-#include "slot.h"
+#include "base/node_inventories.h"
+#include "base/slot.h"
 #include "inventory.h"
+
 
 using namespace godot;
 
@@ -25,7 +26,7 @@ public:
 	virtual void _ready();
 	void set_inventory_path(const NodePath &new_inventory);
 	NodePath get_inventory_path() const;
-	Inventory* get_inventory() const;
+	Inventory *get_inventory() const;
 	void set_slots_in_hot_bar(const int &new_slots_in_hot_bar);
 	int get_slots_in_hot_bar() const;
 	void set_selection_index(const int &new_selection_index);
@@ -36,7 +37,6 @@ public:
 	bool has_valid_item_id() const;
 	bool has_item_on_selection() const;
 	Ref<Item> get_selected_item() const;
-
 };
 
 #endif // HOTBAR_CLASS_H

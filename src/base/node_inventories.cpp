@@ -1,7 +1,7 @@
 #include "node_inventories.h"
 
 void NodeInventories::_bind_methods() {
-    ClassDB::bind_method(D_METHOD("set_database", "database"), &NodeInventories::set_database);
+	ClassDB::bind_method(D_METHOD("set_database", "database"), &NodeInventories::set_database);
 	ClassDB::bind_method(D_METHOD("get_database"), &NodeInventories::get_database);
 	ClassDB::bind_method(D_METHOD("get_item_from_id", "id"), &NodeInventories::get_item_from_id);
 	ClassDB::bind_method(D_METHOD("get_id_from_item", "item"), &NodeInventories::get_id_from_item);

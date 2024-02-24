@@ -1,13 +1,12 @@
 #ifndef CRAFT_STATION_CLASS_H
 #define CRAFT_STATION_CLASS_H
 
-#include "craft_station_type.h"
+#include "base/craft_station_type.h"
+#include "base/inventory_database.h"
+#include "base/node_inventories.h"
+#include "core/inventory.h"
 #include "crafting.h"
-#include "inventory.h"
-#include "inventory_database.h"
-#include "node_inventories.h"
 #include <godot_cpp/classes/node.hpp>
-
 
 using namespace godot;
 
@@ -58,8 +57,8 @@ public:
 	void cancel_craft(int crafting_index);
 	bool open();
 	bool close();
-	Inventory* get_input_inventory(const int &index = 0) const;
-	Inventory* get_output_inventory(const int &index = 0) const;
+	Inventory *get_input_inventory(const int &index = 0) const;
+	Inventory *get_output_inventory(const int &index = 0) const;
 	void set_input_inventories(const TypedArray<NodePath> &new_input_inventories);
 	TypedArray<NodePath> get_input_inventories() const;
 	void set_output_inventories(const TypedArray<NodePath> &new_output_inventories);

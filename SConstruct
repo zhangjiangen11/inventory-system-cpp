@@ -51,7 +51,13 @@ env.Alias("compiledb", compilation_db)
 env = SConscript("godot-cpp/SConstruct", {"env": env, "customs": customs})
 
 env.Append(CPPPATH=["src/"])
-sources = Glob("src/*.cpp")
+sources = [
+    Glob('src/*.cpp'),
+    Glob('src/base/*.cpp'),
+    Glob('src/core/*.cpp'),
+    Glob('src/craft/*.cpp'),
+    Glob('src/interact/*.cpp')
+    ]
 
 file = "{}{}{}".format(libname, env["suffix"], env["SHLIBSUFFIX"])
 

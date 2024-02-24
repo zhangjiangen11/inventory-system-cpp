@@ -37,10 +37,10 @@ NodePath Hotbar::get_inventory_path() const {
 	return inventory_path;
 }
 
-Inventory* Hotbar::get_inventory() const {
+Inventory *Hotbar::get_inventory() const {
 	Node *node_inv = get_node_or_null(inventory_path);
 	Inventory *inventory = Object::cast_to<Inventory>(node_inv);
-	if(node_inv == nullptr) {
+	if (node_inv == nullptr) {
 		ERR_PRINT("Missing setup inventory node on hotbar.");
 		return nullptr;
 	}
@@ -107,7 +107,7 @@ Ref<Item> Hotbar::get_selected_item() const {
 	if (!has_valid_item_id()) {
 		return nullptr;
 	}
-    Ref<Slot> slot = inventory->get_slots()[selection_index];
+	Ref<Slot> slot = inventory->get_slots()[selection_index];
 	return slot->get_item();
 }
 
@@ -120,7 +120,7 @@ Hotbar::~Hotbar() {
 void Hotbar::_ready() {
 	Node *node_inv = get_node_or_null(inventory_path);
 	Inventory *inventory = Object::cast_to<Inventory>(node_inv);
-	if(node_inv == nullptr) {
+	if (node_inv == nullptr) {
 		ERR_PRINT("Missing setup inventory node on hotbar.");
 		return;
 	}
@@ -131,5 +131,5 @@ void Hotbar::_ready() {
 	if (inventory != nullptr) {
 		inventory->connect("updated_slot", callable_mp(this, &Hotbar::_on_updated_slot));
 	}
-    NodeInventories::_ready();
+	NodeInventories::_ready();
 }

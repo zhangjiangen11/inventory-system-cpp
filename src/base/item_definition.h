@@ -32,7 +32,7 @@ public:
 
 	ItemDefinition();
 	~ItemDefinition();
-    void set_id(const int &new_id);
+	void set_id(const int &new_id);
 	int get_id() const;
 	void set_can_stack(const bool &new_can_stack);
 	bool get_can_stack() const;
