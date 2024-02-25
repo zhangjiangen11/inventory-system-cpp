@@ -20,6 +20,7 @@
 #include "craft/crafter.h"
 #include "craft/crafting.h"
 #include "interact/interact_action.h"
+#include "interact/interactor.h"
 
 using namespace godot;
 
@@ -43,6 +44,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<Crafter>();
 	ClassDB::register_class<Crafting>();
 	ClassDB::register_class<InteractAction>();
+	ClassDB::register_class<Interactor>();
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
