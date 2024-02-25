@@ -15,6 +15,7 @@
 #include "core/categorized_slot.h"
 #include "core/hotbar.h"
 #include "core/inventory.h"
+#include "core/inventory_handler.h"
 #include "craft/craft_station.h"
 #include "craft/crafter.h"
 #include "craft/crafting.h"
@@ -26,20 +27,21 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+	ClassDB::register_class<CraftStationType>();
+	ClassDB::register_class<InventoryDatabase>();
+	ClassDB::register_class<Item>();
 	ClassDB::register_class<ItemCategory>();
 	ClassDB::register_class<ItemDefinition>();
-	ClassDB::register_class<CraftStationType>();
-	ClassDB::register_class<Item>();
-	ClassDB::register_class<Slot>();
-	ClassDB::register_class<Recipe>();
-	ClassDB::register_class<InventoryDatabase>();
 	ClassDB::register_class<NodeInventories>();
-	ClassDB::register_class<Inventory>();
-	ClassDB::register_class<Crafting>();
-	ClassDB::register_class<CraftStation>();
+	ClassDB::register_class<Recipe>();
+	ClassDB::register_class<Slot>();
 	ClassDB::register_class<CategorizedSlot>();
 	ClassDB::register_class<Hotbar>();
+	ClassDB::register_class<Inventory>();
+	ClassDB::register_class<InventoryHandler>();
+	ClassDB::register_class<CraftStation>();
 	ClassDB::register_class<Crafter>();
+	ClassDB::register_class<Crafting>();
 	ClassDB::register_class<InteractAction>();
 }
 
