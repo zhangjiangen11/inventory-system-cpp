@@ -242,7 +242,7 @@ bool InventoryHandler::close(Inventory *inventory) {
 		return false;
 	if (!inventory->close())
 		return false;
-	if (inventories_path.find(inventory->get_path()) != -1) {
+	if (inventories_path.find(this->get_path_to(inventory)) != -1) {
 		if (is_transaction_active()) {
 			Ref<Item> item = transaction_slot->get_item();
 			int amount_no_add = inventory->add(item, transaction_slot->get_amount());
