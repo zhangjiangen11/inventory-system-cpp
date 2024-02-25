@@ -48,7 +48,7 @@ public:
 	void set_actual_hand_object(Node *new_actual_hand_object);
 	InventoryHandler* get_inventory_handler() const;
 	Crafter* get_crafter() const;
-	Hotbar* get_hobar() const;
+	Hotbar* get_hotbar() const;
 };
 
 #endif //INTERACTOR_CLASS_H

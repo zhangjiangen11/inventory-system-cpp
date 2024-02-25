@@ -1,5 +1,6 @@
 #include "register_types.h"
 #include <gdextension_interface.h>
+#include <godot_cpp/classes/engine.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
@@ -20,9 +21,11 @@
 #include "craft/crafter.h"
 #include "craft/crafting.h"
 #include "interact/interact_action.h"
-#include "interact/interactor.h"
+#include "inventory_system.h"
 
 using namespace godot;
+
+InventorySystem *inventory_system = nullptr;
 
 void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
@@ -45,12 +48,18 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<Crafting>();
 	ClassDB::register_class<InteractAction>();
 	ClassDB::register_class<Interactor>();
+	ClassDB::register_class<InventorySystem>();
+
+	inventory_system = memnew(InventorySystem);
+	godot::Engine::get_singleton()->register_singleton("InventorySystem", inventory_system);
 }
 
 void uninitialize_gdextension_types(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+	Engine::get_singleton()->unregister_singleton("InventorySystem");
+	memdelete(inventory_system);
 }
 
 extern "C" {

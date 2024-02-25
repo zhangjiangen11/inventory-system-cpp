@@ -20,7 +20,7 @@ void Interactor::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_actual_hand_object", "actual_hand_object"), &Interactor::set_actual_hand_object);
 	ClassDB::bind_method(D_METHOD("get_inventory_handler"), &Interactor::get_inventory_handler);
 	ClassDB::bind_method(D_METHOD("get_crafter"), &Interactor::get_crafter);
-	ClassDB::bind_method(D_METHOD("get_hotbar"), &Interactor::get_hobar);
+	ClassDB::bind_method(D_METHOD("get_hotbar"), &Interactor::get_hotbar);
 	ADD_SIGNAL(MethodInfo("preview_interacted", PropertyInfo(Variant::ARRAY, "actions", PROPERTY_HINT_ARRAY_TYPE, vformat("%s/%s:%s", Variant::OBJECT, PROPERTY_HINT_RESOURCE_TYPE, "InteractAction"))));
 	// ADD_SIGNAL(MethodInfo("interacted", PropertyInfo(Variant::OBJECT, "object")));
 	ADD_PROPERTY(PropertyInfo(Variant::NODE_PATH, "inventory_handler_path"), "set_inventory_handler_path", "get_inventory_handler_path");
@@ -167,7 +167,7 @@ Crafter *Interactor::get_crafter() const {
 	return crafter;
 }
 
-Hotbar *Interactor::get_hobar() const {
+Hotbar *Interactor::get_hotbar() const {
 	Node *hotbar_path_node = get_node_or_null(hotbar_path);
 	if (hotbar_path_node == nullptr)
 		return nullptr;
