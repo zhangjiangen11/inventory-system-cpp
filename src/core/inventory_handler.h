@@ -29,7 +29,7 @@ protected:
 public:
 	InventoryHandler();
 	~InventoryHandler();
-	virtual void _ready();
+	virtual void _ready() override;
 	void set_drop_parent_path(const NodePath new_drop_parent_path);
 	NodePath get_drop_parent_path() const;
 	void set_drop_parent_position_path(const NodePath new_drop_parent_position_path);

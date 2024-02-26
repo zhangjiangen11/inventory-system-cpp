@@ -23,7 +23,7 @@ protected:
 public:
 	Hotbar();
 	~Hotbar();
-	virtual void _ready();
+	virtual void _ready() override;
 	void set_inventory_path(const NodePath &new_inventory);
 	NodePath get_inventory_path() const;
 	Inventory *get_inventory() const;

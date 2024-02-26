@@ -20,8 +20,8 @@ protected:
 public:
 	NodeInventories();
 	~NodeInventories();
-	virtual void _ready();
-	virtual PackedStringArray _get_configuration_warnings() const;
+	virtual void _ready() override;
+	virtual PackedStringArray _get_configuration_warnings() const override;
 	void set_database(const Ref<InventoryDatabase> new_database);
 	Ref<InventoryDatabase> get_database() const;
 	Ref<ItemDefinition> get_item_from_id(const int id) const;

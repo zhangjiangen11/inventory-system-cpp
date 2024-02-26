@@ -27,7 +27,7 @@ protected:
 public:
 	Inventory();
 	~Inventory();
-	virtual void _enter_tree();
+	virtual void _enter_tree() override;
 	void update_slot(const int slot_index);
 	void add_slot(int slot_index, bool emit_signal = true);
 	void remove_slot(int slot_index, bool emit_signal = true);

@@ -43,7 +43,7 @@ public:
 
 	CraftStation();
 	~CraftStation();
-	virtual void _ready();
+	virtual void _ready() override;
 	virtual void _process(float delta);
 	void _setup_connections();
 	void add_crafting(int recipe_index, const Ref<Recipe> &recipe);
