@@ -121,8 +121,8 @@ TypedArray<InteractAction> Interactor::get_actions(Node *node) const {
 
 	if (inventory_handler->is_open_any_inventory() || crafter->is_open_any_station())
 		return actions;
-	if (node != nullptr && node->has_method("get_actions")) {
-		actions = node->call("get_actions", this);
+	if (node != nullptr && node->has_method("get_interact_actions")) {
+		actions = node->call("get_interact_actions", this);
 	}
 	return actions;
 }
