@@ -180,7 +180,7 @@ void CraftStation::_ready() {
 	if (Engine::get_singleton()->is_editor_hint())
 		return;
 	valid_recipes.clear();
-	for (size_t i = 0; i < get_database()->get_recipes().size(); i++) {
+	for (int i = 0; i < get_database()->get_recipes().size(); i++) {
 		Ref<Recipe> recipe = get_database()->get_recipes()[i];
 		if (recipe->get_station() == type) {
 			valid_recipes.append(i);
